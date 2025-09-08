@@ -19,6 +19,7 @@ jobs:
   release:
     name: Criação de Release
     runs-on: ubuntu-latest
+    needs: [build]
     steps:
       - name: Obtendo o código do projeto
         uses: actions/checkout@v4
@@ -36,7 +37,7 @@ jobs:
           tags: |
             niltonpita/projeto-devops-pro:latest
             niltonpita/projeto-devops-pro:v${{github.run_number}}
-            
+
 
 
 
