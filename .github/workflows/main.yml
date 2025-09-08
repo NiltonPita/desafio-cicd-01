@@ -9,16 +9,37 @@ on:
 
 jobs:
   build:
-    name: Build
+    steps:
+      - name: Setup dotnet
+      with:
+      - name: Execução do comando build
+        working-directory: ./src        
+        run: dotnet build Review-Filmes.sln
+      
+  release:
+    name: Criação de Release
     runs-on: ubuntu-latest
     steps:
       - name: Obtendo o código do projeto
         uses: actions/checkout@v4
-      - name: Setup dotnet
-        uses: actions/setup-dotnet@v4
+      - name: Efetuando login no Docker Hub
+        uses: docker/login-action@v3
         with:
-          dotnet-version: "8.0.300"
-      - name: Execução do comando build
-        working-directory: ./src        
-        run: dotnet build Review-Filmes.sln
-        
+          username:  ${{ DOCKERHUB_USERNAME }}
+          passaword: ${{ DOCKERHUB_PWD }}
+      - name: Build e Push da Imagem Docker
+        uses: docker/build-push-action@v6
+        with:
+          push: true
+          context: ./src
+          file: ./src/Review-Filmes.Web/Dockerfile
+          tags: |
+            niltonpita/projeto-devops-pro:latest
+            niltonpita/projeto-devops-pro:v${{github.run_number}}
+            
+
+
+
+
+
+
