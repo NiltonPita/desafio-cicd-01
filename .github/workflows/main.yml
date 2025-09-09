@@ -31,7 +31,7 @@ jobs:
       - name: Efetuando login no Docker Hub
         uses: docker/login-action@v3
         with:
-          username:  ${{ DOCKERHUB_USERNAME }}
+          username:  ${{ DOCKERHUB_USER }}
           passaword: ${{ DOCKERHUB_PWD }}
       - name: Build e Push da Imagem Docker
         uses: docker/build-push-action@v6
