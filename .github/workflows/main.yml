@@ -21,6 +21,11 @@ jobs:
         working-directory: ./src
         run: dotnet build Review-Filmes.sln
 
+  testes:
+    needs: [build]
+    uses: niltonpita/desafio-cicd-01
+    
+
   release:
     name: Criação de Release
     runs-on: ubuntu-latest
