@@ -9,13 +9,18 @@ on:
 
 jobs:
   build:
+    runs-on: ubuntu-latest
     steps:
+      - name: Obtendo o código do projeto
+        uses: actions/checkout@v4
       - name: Setup dotnet
-      with:
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.300"
       - name: Execução do comando build
-        working-directory: ./src        
+        working-directory: ./src
         run: dotnet build Review-Filmes.sln
-      
+
   release:
     name: Criação de Release
     runs-on: ubuntu-latest
@@ -37,10 +42,3 @@ jobs:
           tags: |
             niltonpita/projeto-devops-pro:latest
             niltonpita/projeto-devops-pro:v${{github.run_number}}
-
-
-
-
-
-
-
