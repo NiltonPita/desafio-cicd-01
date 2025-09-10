@@ -1,19 +1,19 @@
 name: Execução de Testes
 
 on:
-    workflow_call:
+  workflow_call:
 
-  jobs:
-    unit_test:
-        name: teste de Unidade
-        runs-on: ubuntu-latest
-        steps:
-          - name: Obtendo o código do projeto
-            uses: actions/checkout@v4
-          - name: Setup dotnet
-            uses: actions/setup-dotnet@v4
-            with:
-             dotnet-version: "8.0.300"
-          - name: Execução do teste de Unidade
-            run: donet test ./Review-Filmes.Test.Unit
+jobs:
+  unit_test:
+      name: teste de Unidade
+      runs-on: ubuntu-latest
+      steps:
+        - name: Obtendo o código do projeto
+          uses: actions/checkout@v4
+        - name: Setup dotnet
+          uses: actions/setup-dotnet@v4
+          with:
+            dotnet-version: "8.0.300"
+        - name: Execução do teste de Unidade
+          run: donet test ./Review-Filmes.Test.Unit
 
