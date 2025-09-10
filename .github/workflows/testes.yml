@@ -15,5 +15,5 @@ jobs:
           with:
             dotnet-version: "8.0.300"
         - name: Execução do teste de Unidade
-          run: donet test ./Review-Filmes.Test.Unit
+          run: dotnet test ./Review-Filmes.Test.Unit
 
