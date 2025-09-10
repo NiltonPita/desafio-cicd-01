@@ -2,8 +2,8 @@ name: Execução de Testes
 
 on:
     workflow_call:
-src
-jobs:
+
+  jobs:
     unit_test:
         name: teste de Unidade
         runs-on: ubuntu-latest
