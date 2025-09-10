@@ -23,9 +23,8 @@ jobs:
 
   testes:
     needs: [build]
-    uses: niltonpita/desafio-cicd-01
+    uses: niltonpita/desafio-cicd-01/.github/workflows/teste.yml@main
     
-
   release:
     name: Criação de Release
     runs-on: ubuntu-latest
