@@ -23,11 +23,11 @@ jobs:
       runs-on: ubuntu-latest
       services:
         postgre:
-          image: postgre-latest
+          image: postgres-latest
           ports:
             - 5432:5432
           env:
-              POSTGRE_USER: review
+              POSTGRES_USER: review
               POSTGRES_PASSWORD: postgrespwd
               POSTGRES_db: review-filmes
       steps:
