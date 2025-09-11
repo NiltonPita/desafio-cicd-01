@@ -20,7 +20,7 @@ jobs:
 
   integration-test:
       name: Teste de Integração
-      runs-on: ibiti-latest
+      runs-on: ubuntu-latest
       services:
         postgre:
           image: postgre-latest
