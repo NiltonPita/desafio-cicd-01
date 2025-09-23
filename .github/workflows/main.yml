@@ -45,4 +45,4 @@ jobs:
           file: ./src/Review-Filmes.Web/Dockerfile
           tags: |
             niltonpita/projeto-devops-pro:latest
-            niltonpita/projeto-devops-pro:v${{ github.run_number }}
+            niltonpita/projeto-devops-pro:v${{ github.run_number }} 
