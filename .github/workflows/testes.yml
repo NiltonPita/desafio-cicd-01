@@ -56,7 +56,10 @@ jobs:
           java-version: '21'
           ## configurar servidor de sonaqube
           ## criar projeto de intgração
-         
+
+      - name: Obtendo o código do projeto
+        uses: actions/checkout@v4
+
       - name: Setup dotnet
         uses: actions/setup-dotnet@v4
         with:
