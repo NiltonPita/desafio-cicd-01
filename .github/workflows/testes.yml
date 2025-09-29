@@ -66,10 +66,10 @@ jobs:
         run: dotnet tool install --global dotnet-sonarscanner
 
       - name: Build e analise
-        # working-directory: ./src
+        working-directory: ./src
         run: |
           dotnet sonarscanner begin /k:"filme" /d:sonar.host.url="${{ secrets.SONAR_HOST_URL }}"  /d:sonar.login="${{ secrets.SONAR_TOKEN }}""
-          dotnet build ./Review-Filmes.sln
+          dotnet build Review-Filmes.sln
           dotnet sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
 
       - name: Verificação do Quality Gate
@@ -79,7 +79,7 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
         with:
-          scanMetadataReportFile: .src/.sonarqube/.sonar/report-task.txt
+          scanMetadataReportFile: .src/.sonarqube/out/.sonar/report-task.txt
       
       - name: Exibir status quality gate
         if: ${{ always() }}
