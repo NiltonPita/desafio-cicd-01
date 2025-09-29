@@ -15,7 +15,7 @@ jobs:
           with:
             dotnet-version: "8.0.300"
         - name: Execução do teste de Unidade
-          working-directory: ./src
+          working-directory: NiltonPita/desafio-cicd-01/src
           run: dotnet test ./Review-Filmes.Test.Unit/Review-Filmes.Test.Unit.csproj
 
   integration-test:
