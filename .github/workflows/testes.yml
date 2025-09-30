@@ -39,39 +39,23 @@ jobs:
           uses: actions/setup-dotnet@v4
           with:
             dotnet-version: "8.0.300"
+  
+  Sonarqube:
+      name: Scan com o Sonarqube
+      runs-on: ubuntu-latest
+      steps:
+        - name: Obtendo o código do projeto
+          uses: actions/checkout@v4
 
-        - name: Execução do teste de Integração
-          working-directory: ./src
-          run: dotnet test ./Review-Filmes.Test.Integration/Review-Filmes.Test.Integration.csproj
-          env:
-            ConnectionStrings__DefaultConnection: "Host=localhost;Port=5432;Database=review-filmes;Username=review;Password=postgrespwd"
+        - name: Setup JDK
+          uses: actions/setup-java@v4
+          with:
+            distribution: adopt
+            java-version: '21'
+            ## configurar servidor de sonaqube
+            ## criar projeto de intgração
 
-Sonaqube:
-  name: Scan com o Sonarqube
-  runs-on: ubuntu-latest
-  steps:
-  - name: Obtendo o código do projeto
-  uses: actions/checkout@v4
-
-  - name: Setup JDK
-  uses: actions/setup-java@v4
-  with:
-  distribution: adopt
-  java-version: '21'
-  ## configurar servidor de sonaqube
-  ## criar projeto de intgração
-
-  - name: Setup dotnet
-  uses: actions/setup-dotnet@v4
-  with:
-  dotnet-version: "8.0.300"
-
-  - name: Instalação do Sonarqube Scanner
-  run: dotnet tool install --global dotnet-sonarscanner
-
-  - name: Build e analise
-  working-directory: ./src
-
- 
-
-
+        - name: Setup dotnet
+          uses: actions/setup-dotnet@v4
+          with:
+            dotnet-version: "8.0.300"
