@@ -60,7 +60,7 @@ jobs:
         with:
           scan-type: 'image'
           image-ref: niltonpita/projeto-devops-pro:v${{ github.run_number }} 
-          format: serif
+          format: sarif
           output: trivy-docker-result.sarif
           severity: 'UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL' 
       
