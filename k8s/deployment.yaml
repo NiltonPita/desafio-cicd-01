@@ -72,8 +72,9 @@ spec:
   ports:
     - port: 80
       targetPort: 8080
-      #nodePort: 30000
-  type: LoadBalancer
+      nodePort: 30000
+  type: NodePort
+
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -84,7 +85,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: homologacao.fabricioveronez.com
+  - host: homologacao.niltonpita.com
     http:
       paths:
       - pathType: Prefix
