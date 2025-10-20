@@ -69,6 +69,7 @@ jobs:
         with:
           category: docker-result
           sarif_file: trivy-docker-result.sarif
+          
   deploy-homolog:
     needs: [release]
     uses: niltonpita/desafio-cicd-01/.github/workflows/deploy.yml@main
