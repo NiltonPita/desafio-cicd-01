@@ -74,3 +74,14 @@ jobs:
     needs: [release]
     uses: niltonpita/desafio-cicd-01/.github/workflows/deploy.yml@main
     secrets: inherit
+    with:
+      enviroments-name: homologacao
+      enviroments-url: http://homologacao.niltonpita.com.br
+
+  deploy-producao:
+    needs: [release]
+    uses: niltonpita/desafio-cicd-01/.github/workflows/deploy.yml@main
+    secrets: inherit
+    with:
+      enviroments-name: producao
+      enviroments-url: http://producaocao.niltonpita.com.br
